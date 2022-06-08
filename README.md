@@ -1,6 +1,6 @@
 # Strapify Polaris Common
 
-Collection of Polaris components ready to use in your applications.
+Collection of Polaris components ready to use in applications.
 
 ## Installation
 
