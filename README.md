@@ -8,7 +8,9 @@ Collection of Polaris components ready to use in Shopify applications.
 npm install --save @shop3/polaris-common
 ```
 
+## Storybook
 
+Components are documented in Storybook at https://shop3.github.io/polaris-common/
 
 # Development
 
