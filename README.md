@@ -1,6 +1,6 @@
 # Shop3 Polaris Common
 
-Collection of Polaris components ready to use in applications.
+Collection of Polaris components ready to use in Shopify applications.
 
 ## Installation
 
