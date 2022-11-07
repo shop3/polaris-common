@@ -1,11 +1,11 @@
-# Strapify Polaris Common
+# Shop3 Polaris Common
 
 Collection of Polaris components ready to use in applications.
 
 ## Installation
 
 ```bash
-npm install --save @strapify/polaris-common
+npm install --save @shop3/polaris-common
 ```
 
 
