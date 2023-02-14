@@ -8,4 +8,6 @@ export { default as DisplayStats } from './DisplayStats';
 export type { DisplayStatsProps } from './DisplayStats';
 export { default as Media } from './Media';
 export type { MediaProps } from './Media';
+export { default as PlanCard } from './PlanCard';
+export type { PlanCardProps } from './PlanCard';
 export { default as SkeletonMedia } from './SkeletonMedia';
