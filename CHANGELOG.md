@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/shop3/polaris-common/compare/v0.1.0...v0.1.1) (2023-02-14)
+
+
+### Features
+
+* PlanCard component ([98143f2](https://github.com/shop3/polaris-common/commit/98143f2abf450287e218d6a14f192f38a636dbe6))
+
 ## [0.1.0](https://github.com/shop3/polaris-common/compare/v0.0.2...v0.1.0) (2022-11-07)
 
 ### [0.0.2](https://github.com/shop3/polaris-common/compare/v0.0.1...v0.0.2) (2022-06-08)
