@@ -5,23 +5,12 @@ import translations from '@shopify/polaris/locales/en.json';
 
 import '@shopify/polaris/build/esm/styles.css';
 
-import { getTheme } from './themes';
-
 export const parameters = {
   layout: 'fullscreen',
   actions: { argTypesRegex: '^on[A-Z].*' },
 };
 
 export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
-    defaultValue: 'light',
-    toolbar: {
-      icon: 'circlehollow',
-      items: ['light', 'dark'],
-    },
-  },
   locale: {
     name: 'Locale',
     description: 'Internationalization locale',
@@ -50,28 +39,24 @@ const Provider = ({ theme, children }) => {
 
   return (
     <AppProvider i18n={i18n.translations}>
-      <CustomProperties {...theme}>
-        <Frame>{children}</Frame>
-      </CustomProperties>
+      <Frame>{children}</Frame>
     </AppProvider>
   );
 };
 
 const withProviders = (Story, context) => {
   const locale = context.globals.locale;
-  const theme = getTheme(context.globals.theme);
-
   const i18nManager = new I18nManager({
     locale,
     fallbackLocale: 'en',
     onError(error) {
-      // console.error(error);
+      console.error(error);
     },
   });
 
   return (
     <I18nContext.Provider value={i18nManager}>
-      <Provider theme={theme} i18n={translations}>
+      <Provider i18n={translations}>
         <Story {...context} />
       </Provider>
     </I18nContext.Provider>
