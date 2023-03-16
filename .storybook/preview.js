@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppProvider, CustomProperties, Frame } from '@shopify/polaris';
+import { AppProvider, Frame } from '@shopify/polaris';
 import { I18nContext, I18nManager, useI18n } from '@shopify/react-i18n';
 import translations from '@shopify/polaris/locales/en.json';
 
@@ -26,7 +26,7 @@ export const globalTypes = {
 };
 
 // eslint-disable-next-line react/prop-types
-const Provider = ({ theme, children }) => {
+const Provider = ({ children }) => {
   const [i18n] = useI18n({
     id: 'Polaris',
     fallback: translations,
