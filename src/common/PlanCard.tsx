@@ -10,6 +10,8 @@ type PlanCardProps = {
   trialDays: number;
   usageCappedAmount: number;
   usageTerms: string;
+  paymentsMode: string;
+  oneTimePrice: number;
 };
 
 const PlanCard: React.FC<PlanCardProps> = ({
@@ -20,6 +22,8 @@ const PlanCard: React.FC<PlanCardProps> = ({
   trialDays,
   usageCappedAmount,
   usageTerms,
+  paymentsMode,
+  oneTimePrice,
 }) => {
   return (
     <Card>
@@ -30,11 +34,15 @@ const PlanCard: React.FC<PlanCardProps> = ({
         <Card.Section>
           <Stack vertical={true} alignment="fill">
             <Stack distribution="center">
-              <DisplayText size="extraLarge">{recurringPrice + currencyCode}</DisplayText>
+              <DisplayText size="extraLarge">
+                {paymentsMode === 'recuringPrice' ? recurringPrice : oneTimePrice + currencyCode}
+              </DisplayText>
             </Stack>
             <Card.Section>
               <Stack alignment="center" distribution="center" spacing="baseTight">
-                <DisplayText size="small">{recurringInterval}</DisplayText>
+                <DisplayText size="small">
+                  {paymentsMode === 'recuringPrice' ? recurringInterval : 'OneTimePurchase'}
+                </DisplayText>
                 <Icon source={CircleInformationMajor} />
               </Stack>
             </Card.Section>

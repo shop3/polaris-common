@@ -19,6 +19,8 @@ const Template = () => (
         trialDays={7}
         usageCappedAmount={5}
         usageTerms="This is a silver plan"
+        paymentsMode="recuringPrice"
+        oneTimePrice={100}
       />
     </Card>
   </Page>
