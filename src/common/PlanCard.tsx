@@ -1,6 +1,5 @@
 import React from 'react';
 import { Stack, Button, Icon, DisplayText, Card } from '@shopify/polaris';
-import { CircleInformationMajor, CircleTickMajor } from '@shopify/polaris-icons';
 
 type PlanCardProps = {
   name: string;
@@ -34,30 +33,25 @@ const PlanCard: React.FC<PlanCardProps> = ({
         <Card.Section>
           <Stack vertical={true} alignment="fill">
             <Stack distribution="center">
-              <DisplayText size="extraLarge">{paymentsMode==="recuringPrice" ? recurringPrice : oneTimePrice + currencyCode}</DisplayText>
+              <DisplayText size="extraLarge">{paymentsMode==="recuringPrice" ? recurringPrice + currencyCode : oneTimePrice + currencyCode}</DisplayText>
             </Stack>
             <Card.Section>
               <Stack alignment="center" distribution="center" spacing="baseTight">
-                <DisplayText size="small">{paymentsMode==="recuringPrice" ? recurringInterval : "OneTimePurchase"}</DisplayText>
-                <Icon source={CircleInformationMajor} />
+                <DisplayText size="small">{paymentsMode==="recuringPrice" ? recurringInterval : "One time purchase"}</DisplayText>
               </Stack>
             </Card.Section>
             <Button fullWidth size="large" primary>
               Buy now
             </Button>
-            <Stack distribution="center">
-              <DisplayText size="small">Free Enterprise Edition trial: {trialDays}</DisplayText>
+            <Stack vertical={true}>
+              <h5>Free Enterprise Edition trial: {trialDays}</h5>
+              {usageCappedAmount > 0 ? (
+                <h5 style={{paddingTop:-2}}>Additional charges may apply</h5>
+                ) : ( <></>)
+              }
+              <h5>{usageTerms}</h5>
             </Stack>
           </Stack>
-        </Card.Section>
-        <Card.Section>
-          <DisplayText size="small">usageCappedAmount: {usageCappedAmount}</DisplayText>
-          <Card.Section>
-            <Stack alignment="center" spacing="baseTight">
-              <Icon source={CircleTickMajor} />
-              <DisplayText size="small">{usageTerms}</DisplayText>
-            </Stack>
-          </Card.Section>
         </Card.Section>
       </Stack>
     </Card>
