@@ -3,26 +3,26 @@ import { Stack, Button, Icon, DisplayText, Card } from '@shopify/polaris';
 
 type PlanCardProps = {
   name: string;
-  recurringPrice: number;
   currencyCode: string;
-  recurringInterval: string;
-  trialDays: number;
+  paymentsMode: string;
+  recurringPrice?: number;
+  recurringInterval?: string;
+  oneTimePrice?: number;
   usageCappedAmount: number;
   usageTerms: string;
-  paymentsMode: string;
-  oneTimePrice: number;
+  trialDays: number;
 };
 
 const PlanCard: React.FC<PlanCardProps> = ({
   name,
-  recurringPrice,
   currencyCode,
+  paymentsMode,
+  recurringPrice,
   recurringInterval,
-  trialDays,
+  oneTimePrice,
   usageCappedAmount,
   usageTerms,
-  paymentsMode,
-  oneTimePrice,
+  trialDays,
 }) => {
   return (
     <Card>
@@ -33,11 +33,19 @@ const PlanCard: React.FC<PlanCardProps> = ({
         <Card.Section>
           <Stack vertical={true} alignment="fill">
             <Stack distribution="center">
-              <DisplayText size="extraLarge">{paymentsMode==="recuringPrice" ? recurringPrice + currencyCode : oneTimePrice + currencyCode}</DisplayText>
+              <DisplayText size="extraLarge">
+                {paymentsMode === 'recuringPrice' ? recurringPrice : oneTimePrice} {currencyCode}
+              </DisplayText>
             </Stack>
             <Card.Section>
               <Stack alignment="center" distribution="center" spacing="baseTight">
-                <DisplayText size="small">{paymentsMode==="recuringPrice" ? recurringInterval : "One time purchase"}</DisplayText>
+                <DisplayText size="small">
+                  {paymentsMode === 'recuringPrice'
+                    ? recurringInterval === 'EVERY_30_DAYS'
+                      ? 'Every 30 days'
+                      : 'Every year'
+                    : 'One time purchase'}
+                </DisplayText>
               </Stack>
             </Card.Section>
             <Button fullWidth size="large" primary>
@@ -45,10 +53,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
             </Button>
             <Stack vertical={true}>
               <h5>Free Enterprise Edition trial: {trialDays}</h5>
-              {usageCappedAmount > 0 ? (
-                <h5 style={{paddingTop:-2}}>Additional charges may apply</h5>
-                ) : ( <></>)
-              }
+              {usageCappedAmount > 0 ? <h5 style={{ paddingTop: -2 }}>Additional charges may apply</h5> : null}
               <h5>{usageTerms}</h5>
             </Stack>
           </Stack>

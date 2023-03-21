@@ -50,6 +50,7 @@ const withProviders = (Story, context) => {
     locale,
     fallbackLocale: 'en',
     onError(error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     },
   });

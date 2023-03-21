@@ -14,40 +14,36 @@ const Template = () => (
       <Card.Section>
         <PlanCard
           name="SILVER PLAN"
+          currencyCode="USD"
+          paymentsMode="recuringPrice"
           recurringPrice={50}
-          currencyCode="USD"
-          recurringInterval="Every 30 days"
-          trialDays={7}
+          recurringInterval="EVERY_30_DAYS"
           usageCappedAmount={5}
           usageTerms="This is a silver plan"
-          paymentsMode='recuringPrice'
-          oneTimePrice={100}
+          trialDays={7}
         />
       </Card.Section>
       <Card.Section>
         <PlanCard
           name="SILVER PLAN"
-          recurringPrice={500}
           currencyCode="USD"
-          recurringInterval="Every year"
-          trialDays={7}
+          paymentsMode="recuringPrice"
+          recurringPrice={500}
+          recurringInterval="ANNUAL"
           usageCappedAmount={5}
           usageTerms="This is a silver plan"
-          paymentsMode='recuringPrice'
-          oneTimePrice={100}
+          trialDays={7}
         />
       </Card.Section>
       <Card.Section>
         <PlanCard
           name="SILVER PLAN"
-          recurringPrice={500}
           currencyCode="USD"
-          recurringInterval="Every year"
-          trialDays={7}
+          paymentsMode="oneTimePrice"
+          oneTimePrice={700}
           usageCappedAmount={0}
           usageTerms="This is a silver plan"
-          paymentsMode='oneTimePrice'
-          oneTimePrice={700}
+          trialDays={7}
         />
       </Card.Section>
     </Stack>
