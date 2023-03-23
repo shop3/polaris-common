@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Subheading } from '@shopify/polaris';
+import { LegacyStack, Text } from '@shopify/polaris';
 
 interface DisplayJsonProps {
   data: any;
@@ -8,14 +8,14 @@ interface DisplayJsonProps {
 
 const DisplayJson: React.FC<DisplayJsonProps> = ({ data, renderItems }) => {
   return (
-    <Stack vertical spacing="baseTight">
+    <LegacyStack vertical spacing="baseTight">
       {Object.entries(data || {}).map(([k, v], i) => (
-        <Stack key={i} spacing="extraTight" distribution="equalSpacing" alignment="center">
-          <Subheading>{k}</Subheading>
+        <LegacyStack key={i} spacing="extraTight" distribution="equalSpacing" alignment="center">
+          <Text variant="headingMd" as="h6">{k}</Text>
           {(renderItems && renderItems(v)) || <RenderValue value={v} />}
-        </Stack>
+        </LegacyStack>
       ))}
-    </Stack>
+    </LegacyStack>
   );
 };
 

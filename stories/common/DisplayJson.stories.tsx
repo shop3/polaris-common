@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Page } from '@shopify/polaris';
+import { LegacyCard, Page } from '@shopify/polaris';
 
 import { DisplayJson } from '../../src';
 
@@ -10,9 +10,9 @@ export default {
 
 const Template = () => (
   <Page narrowWidth>
-    <Card sectioned>
+    <LegacyCard sectioned>
       <DisplayJson data={{ text: 'hello world', number: 0.01, boolean: true }} />
-    </Card>
+    </LegacyCard>
   </Page>
 );
 
