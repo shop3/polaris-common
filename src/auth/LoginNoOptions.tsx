@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Button, DisplayText, Form, FormLayout, Icon, Stack, TextField } from '@shopify/polaris';
+import { Button, Text, Form, FormLayout, Icon, LegacyStack, TextField } from '@shopify/polaris';
 import { LinkMinor } from '@shopify/polaris-icons';
 import _ from 'lodash';
 
@@ -41,9 +41,9 @@ const LoginNoOptions: React.FC<Props> = ({ onLogin }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <FormLayout>
-        <Stack distribution="center">
-          <DisplayText>Enter your shop domain:</DisplayText>
-        </Stack>
+        <LegacyStack distribution="center">
+          <Text variant="headingMd" as="h2">Enter your shop domain:</Text>
+        </LegacyStack>
         <TextField
           id="ShopDomainTextField"
           label="Shop Domain"
@@ -60,11 +60,11 @@ const LoginNoOptions: React.FC<Props> = ({ onLogin }) => {
           focused
           helpText=""
         />
-        <Stack distribution="center">
+        <LegacyStack distribution="center">
           <Button primary submit>
             Login
           </Button>
-        </Stack>
+        </LegacyStack>
       </FormLayout>
     </Form>
   );
