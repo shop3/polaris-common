@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Page } from '@shopify/polaris';
+import { LegacyCard, Page } from '@shopify/polaris';
 
 import { CollapsibleSection } from '../../src';
 
@@ -10,11 +10,11 @@ export default {
 
 const Template = () => (
   <Page narrowWidth>
-    <Card>
+    <LegacyCard>
       <CollapsibleSection id="collapsible-id" title="Test Collapsible">
         <p>This is a test text</p>
       </CollapsibleSection>
-    </Card>
+    </LegacyCard>
   </Page>
 );
 
