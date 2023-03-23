@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/shop3/polaris-common/compare/v0.2.1...v0.2.2) (2023-03-23)
+
+
+### Features
+
+* replaced deprecated components in polaris 10 ([6c07f8e](https://github.com/shop3/polaris-common/commit/6c07f8e3f9d60ddc110b85848eb8eb84030e2d97))
+
 ### [0.2.1](https://github.com/shop3/polaris-common/compare/v0.2.0...v0.2.1) (2023-03-21)
 
 
