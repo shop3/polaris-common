@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActionList, DisplayText, Icon, IconSource } from '@shopify/polaris';
+import { ActionList, Text, Icon, IconSource } from '@shopify/polaris';
 import { ChevronRightMinor } from '@shopify/polaris-icons';
 
 interface ClickableSectionProps {
@@ -16,7 +16,7 @@ const ClickableSection: React.FC<ClickableSectionProps> = ({ icon, content, url,
       items={[
         {
           icon: icon,
-          content: (<DisplayText size="small">{content}</DisplayText>) as any,
+          content: (<Text variant="headingMd" as="h3">{content}</Text>) as any,
           suffix: <Icon source={ChevronRightMinor} />,
           url: url,
           external: external,
