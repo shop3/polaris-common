@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Page } from '@shopify/polaris';
+import { LegacyCard, Page } from '@shopify/polaris';
 import { StarFilledMinor } from '@shopify/polaris-icons';
 
 import { ClickableSection } from '../../src';
@@ -11,9 +11,9 @@ export default {
 
 const Template = () => (
   <Page narrowWidth>
-    <Card>
+    <LegacyCard>
       <ClickableSection icon={StarFilledMinor} content="Test Clickable Section" />
-    </Card>
+    </LegacyCard>
   </Page>
 );
 

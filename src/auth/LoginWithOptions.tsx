@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Card, ResourceItem, ResourceList, TextStyle } from '@shopify/polaris';
+import { Avatar, LegacyCard, ResourceItem, ResourceList, Text } from '@shopify/polaris';
 import { Shop } from './types';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 
 const LoginWithOptions: React.FC<Props> = ({ options, onLogin }) => {
   return (
-    <Card>
+    <LegacyCard>
       <ResourceList
         resourceName={{ singular: 'shop', plural: 'shops' }}
         items={options || []}
@@ -19,14 +19,12 @@ const LoginWithOptions: React.FC<Props> = ({ options, onLogin }) => {
             onClick={() => onLogin(item.domain)}
             media={<Avatar initials={item.name.substring(0, 2)} />}
           >
-            <h3>
-              <TextStyle variation="strong">{item.name}</TextStyle>
-            </h3>
+            <Text variant="headingLg" as="h3">{item.name}</Text>
             <p>{item.domain}</p>
           </ResourceItem>
         )}
       />
-    </Card>
+    </LegacyCard>
   );
 };
 

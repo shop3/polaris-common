@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Page } from '@shopify/polaris';
+import { LegacyCard, Page } from '@shopify/polaris';
 
 import { DisplayStats } from '../../src';
 
@@ -10,7 +10,7 @@ export default {
 
 const Template = () => (
   <Page narrowWidth>
-    <Card sectioned>
+    <LegacyCard sectioned>
       <DisplayStats
         stats={[
           {
@@ -30,7 +30,7 @@ const Template = () => (
           },
         ]}
       />
-    </Card>
+    </LegacyCard>
   </Page>
 );
 

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { ActionList, Button, Card, Collapsible, Heading, Icon, Stack } from '@shopify/polaris';
+import { ActionList, Button, LegacyCard, Collapsible, Text, Icon, LegacyStack } from '@shopify/polaris';
 import { ChevronDownMinor, ChevronUpMinor } from '@shopify/polaris-icons';
 
 interface CollapsibleSectionProps {
@@ -20,7 +20,7 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({ id, title, chil
       <ActionList
         items={[
           {
-            content: (<Heading>{title}</Heading>) as any,
+            content: (<Text variant="headingMd" as="h3">{title}</Text>) as any,
             suffix: <Icon source={open ? ChevronUpMinor : ChevronDownMinor} />,
             onAction: handleToggle,
           },
@@ -28,14 +28,14 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({ id, title, chil
       />
       <Collapsible id={id} open={open} transition={{ duration: '500ms', timingFunction: 'ease-in-out' }} expandOnPrint>
         <div className="Polaris-Card__Section" style={{ paddingTop: 'var(--p-space-1)' }}>
-          <Card.Subsection>{children}</Card.Subsection>
-          <Card.Subsection>
-            <Stack distribution="center">
+          <LegacyCard.Subsection>{children}</LegacyCard.Subsection>
+          <LegacyCard.Subsection>
+            <LegacyStack distribution="center">
               <Button plain onClick={handleToggle} ariaControls={id} ariaExpanded={open}>
                 Show less
               </Button>
-            </Stack>
-          </Card.Subsection>
+            </LegacyStack>
+          </LegacyCard.Subsection>
         </div>
       </Collapsible>
     </>

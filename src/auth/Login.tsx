@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Stack } from '@shopify/polaris';
+import { Button, LegacyStack } from '@shopify/polaris';
 import _ from 'lodash';
 import LoginNoOptions from './LoginNoOptions';
 import LoginWithOptions from './LoginWithOptions';
@@ -15,14 +15,14 @@ const Login: React.FC<Props> = ({ options = [], onLogin = () => undefined }) => 
 
   if (!isNewShop && _.isArray(options) && !_.isEmpty(options)) {
     return (
-      <Stack vertical>
+      <LegacyStack vertical>
         <LoginWithOptions {...{ options, onLogin }} />
-        <Stack distribution="center">
+        <LegacyStack distribution="center">
           <Button plain onClick={() => setIsNewShop(true)}>
             Login with another shop
           </Button>
-        </Stack>
-      </Stack>
+        </LegacyStack>
+      </LegacyStack>
     );
   }
 

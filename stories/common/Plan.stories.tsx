@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Card, Page } from '@shopify/polaris';
+import { Columns, Box, Page } from '@shopify/polaris';
 
 import { PlanCard } from '../../src';
 
@@ -10,8 +10,8 @@ export default {
 
 const Template = () => (
   <Page fullWidth>
-    <Stack wrap distribution="center">
-      <Card.Section>
+    <Columns gap="4" columns={3}>
+      <Box>
         <PlanCard
           name="SILVER PLAN"
           currencyCode="USD"
@@ -22,8 +22,8 @@ const Template = () => (
           usageTerms="This is a silver plan"
           trialDays={7}
         />
-      </Card.Section>
-      <Card.Section>
+      </Box>
+      <Box>
         <PlanCard
           name="SILVER PLAN"
           currencyCode="USD"
@@ -34,8 +34,8 @@ const Template = () => (
           usageTerms="This is a silver plan"
           trialDays={7}
         />
-      </Card.Section>
-      <Card.Section>
+      </Box>
+      <Box>
         <PlanCard
           name="SILVER PLAN"
           currencyCode="USD"
@@ -45,8 +45,8 @@ const Template = () => (
           usageTerms="This is a silver plan"
           trialDays={7}
         />
-      </Card.Section>
-    </Stack>
+      </Box>
+    </Columns>
   </Page>
 );
 

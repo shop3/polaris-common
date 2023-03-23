@@ -1,5 +1,5 @@
 import React from 'react';
-import { DisplayText, Icon, Stack, TextStyle } from '@shopify/polaris';
+import { Text, Icon, LegacyStack } from '@shopify/polaris';
 import * as icons from '@shopify/polaris-icons';
 
 type DisplayStatsProps = {
@@ -12,17 +12,17 @@ type DisplayStatsProps = {
 
 const DisplayStats: React.FC<DisplayStatsProps> = ({ stats }) => {
   return (
-    <Stack>
+    <LegacyStack>
       {stats.map((stat, i) => (
-        <Stack.Item key={i} fill>
-          <Stack vertical alignment="center" distribution="center" spacing="extraTight">
+        <LegacyStack.Item key={i} fill>
+          <LegacyStack vertical alignment="center" distribution="center" spacing="extraTight">
             {stat.icon && <Icon source={getIcon(stat.icon) || ''} backdrop />}
-            <DisplayText size="large">{stat.value}</DisplayText>
-            <TextStyle variation="subdued">{stat.label}</TextStyle>
-          </Stack>
-        </Stack.Item>
+            <Text variant="headingLg" as="h5">{stat.value}</Text>
+            <Text variant="headingXs" as="h6">{stat.label}</Text>
+          </LegacyStack>
+        </LegacyStack.Item>
       ))}
-    </Stack>
+    </LegacyStack>
   );
 };
 
