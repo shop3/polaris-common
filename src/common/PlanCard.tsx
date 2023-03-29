@@ -11,6 +11,8 @@ type PlanCardProps = {
   usageCappedAmount: number;
   usageTerms: string;
   trialDays: number;
+  buttonText?: string;
+  onClick?: () => void;
 };
 
 const PlanCard: React.FC<PlanCardProps> = ({
@@ -22,46 +24,93 @@ const PlanCard: React.FC<PlanCardProps> = ({
   oneTimePrice,
   usageCappedAmount,
   usageTerms,
-  trialDays,
+  buttonText,
+  onClick,
 }) => {
+  const currency = getCurrency(currencyCode);
+  const { price, interval } = getPriceAndInterval(paymentsMode, recurringPrice, recurringInterval, oneTimePrice);
+
   return (
-    <LegacyCard>
-      <LegacyStack vertical={true} alignment="fill">
-        <LegacyStack distribution="center">
-          <Text variant="heading3xl" as="h2">{name}</Text>
-        </LegacyStack>
-        <LegacyCard.Section>
-          <LegacyStack vertical={true} alignment="fill">
-            <LegacyStack distribution="center">
-            <Text variant="heading4xl" as="h1">
-                {paymentsMode === 'recuringPrice' ? recurringPrice : oneTimePrice} {currencyCode}
+    <LegacyCard sectioned>
+      <LegacyCard.Subsection>
+        <LegacyStack vertical spacing="tight">
+          <Text variant="headingSm" color="subdued" as="p">
+            {String(name).toUpperCase()}
+          </Text>
+          <LegacyStack vertical spacing="extraTight">
+            <Text variant="heading3xl" as="p">
+              {currency + price + '/' + interval}
+            </Text>
+            {usageCappedAmount && usageCappedAmount > 0 ? (
+              <Text variant="headingXs" color="subdued" as="p">
+                Additional charges may apply
               </Text>
-            </LegacyStack>
-            <LegacyCard.Section>
-              <LegacyStack alignment="center" distribution="center" spacing="baseTight">
-              <Text variant="headingXl" as="h4">
-                  {paymentsMode === 'recuringPrice'
-                    ? recurringInterval === 'EVERY_30_DAYS'
-                      ? 'Every 30 days'
-                      : 'Every year'
-                    : 'One time purchase'}
-                </Text>
-              </LegacyStack>
-            </LegacyCard.Section>
-            <Button fullWidth size="large" primary>
-              Buy now
-            </Button>
-            <LegacyStack vertical={true}>
-              <Text variant="headingMd" as="h5">Free Enterprise Edition trial: {trialDays}</Text>
-              {usageCappedAmount > 0 ? <Text variant="headingMd" as="h5">Additional charges may apply</Text> : null}
-              <Text variant="headingMd" as="h5">{usageTerms}</Text>
-            </LegacyStack>
+            ) : null}
           </LegacyStack>
-        </LegacyCard.Section>
-      </LegacyStack>
+        </LegacyStack>
+      </LegacyCard.Subsection>
+      <LegacyCard.Subsection>
+        <LegacyStack vertical spacing="loose">
+          <Text variant="headingSm" color="subdued" as="p">
+            {usageTerms}
+          </Text>
+          <Button primary size="large" fullWidth onClick={onClick}>
+            {buttonText || 'Buy now'}
+          </Button>
+        </LegacyStack>
+      </LegacyCard.Subsection>
     </LegacyCard>
   );
 };
 
 export default PlanCard;
 export type { PlanCardProps };
+
+function getCurrency(currencyCode: string) {
+  switch (currencyCode) {
+    case 'USD':
+      return '$';
+    case 'EUR':
+      return '€';
+    default:
+      return '';
+  }
+}
+
+function getPriceAndInterval(
+  paymentsMode: string,
+  recurringPrice?: number,
+  recurringInterval?: string,
+  oneTimePrice?: number
+) {
+  switch (paymentsMode) {
+    case 'recuringPrice':
+      switch (recurringInterval) {
+        case 'EVERY_30_DAYS':
+          return {
+            price: recurringPrice,
+            interval: 'month',
+          };
+        case 'ANNUAL':
+          return {
+            price: recurringPrice,
+            interval: 'year',
+          };
+        default:
+          return {
+            price: 0,
+            interval: '',
+          };
+      }
+    case 'oneTimePrice':
+      return {
+        price: oneTimePrice,
+        interval: 'once',
+      };
+    default:
+      return {
+        price: 0,
+        interval: '',
+      };
+  }
+}
