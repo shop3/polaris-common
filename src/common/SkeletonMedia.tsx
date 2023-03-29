@@ -1,13 +1,13 @@
-import { SkeletonBodyText, SkeletonThumbnail, Stack } from '@shopify/polaris';
+import { LegacyStack, SkeletonBodyText, SkeletonThumbnail } from '@shopify/polaris';
 import React from 'react';
 
 const SkeletonMedia: React.FC = () => (
-  <Stack>
+  <LegacyStack>
     <SkeletonThumbnail />
     <div style={{ marginTop: '0.8rem', width: '9rem' }}>
       <SkeletonBodyText lines={2} />
     </div>
-  </Stack>
+  </LegacyStack>
 );
 
 export default SkeletonMedia;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Caption, Stack, TextStyle, Thumbnail } from '@shopify/polaris';
+import { LegacyStack, Text, Thumbnail } from '@shopify/polaris';
 import { NoteMajor } from '@shopify/polaris-icons';
 
 type MediaProps = {
@@ -10,13 +10,13 @@ type MediaProps = {
 };
 
 const Media: React.FC<MediaProps> = ({ url, name, size, mime }) => (
-  <Stack>
+  <LegacyStack>
     <Thumbnail source={isImage(mime) ? url : NoteMajor} alt={name} />
     <div>
-      <TextStyle>{name}</TextStyle>
-      <Caption>{size} KB</Caption>
+      <Text variant='bodyMd' as='p'>{name}</Text>
+      <Text variant='bodySm' as='p'>{size} KB</Text>
     </div>
-  </Stack>
+  </LegacyStack>
 );
 
 function isImage(mime: string): boolean {
