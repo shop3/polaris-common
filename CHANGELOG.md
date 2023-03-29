@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/shop3/polaris-common/compare/v0.2.2...v0.2.3) (2023-03-29)
+
+
+### Features
+
+* new plan card style ([6533b95](https://github.com/shop3/polaris-common/commit/6533b9506992eb961352dbad3c0ac9a3045c14c5))
+* removed deprecated components ([d7d7932](https://github.com/shop3/polaris-common/commit/d7d7932f4f3480bc5f1cc1055364294796512af1))
+
+
+### Bug Fixes
+
+* fixed styling ([e60954f](https://github.com/shop3/polaris-common/commit/e60954f14cc9753d8e44137829e4156349ae82b9))
+
 ### [0.2.2](https://github.com/shop3/polaris-common/compare/v0.2.1...v0.2.2) (2023-03-23)
 
 
