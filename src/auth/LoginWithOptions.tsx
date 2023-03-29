@@ -19,7 +19,9 @@ const LoginWithOptions: React.FC<Props> = ({ options, onLogin }) => {
             onClick={() => onLogin(item.domain)}
             media={<Avatar initials={item.name.substring(0, 2)} />}
           >
-            <Text variant="headingLg" as="h3">{item.name}</Text>
+            <Text variant="headingMd" as="h3">
+              {item.name}
+            </Text>
             <p>{item.domain}</p>
           </ResourceItem>
         )}

@@ -16,7 +16,11 @@ const ClickableSection: React.FC<ClickableSectionProps> = ({ icon, content, url,
       items={[
         {
           icon: icon,
-          content: (<Text variant="headingMd" as="h3">{content}</Text>) as any,
+          content: (
+            <Text variant="headingMd" as="h3">
+              {content}
+            </Text>
+          ) as any,
           suffix: <Icon source={ChevronRightMinor} />,
           url: url,
           external: external,

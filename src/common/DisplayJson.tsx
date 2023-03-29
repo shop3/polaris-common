@@ -11,7 +11,9 @@ const DisplayJson: React.FC<DisplayJsonProps> = ({ data, renderItems }) => {
     <LegacyStack vertical spacing="baseTight">
       {Object.entries(data || {}).map(([k, v], i) => (
         <LegacyStack key={i} spacing="extraTight" distribution="equalSpacing" alignment="center">
-          <Text variant="headingMd" as="h6">{k}</Text>
+          <Text variant="headingMd" as="h6">
+            {k}
+          </Text>
           {(renderItems && renderItems(v)) || <RenderValue value={v} />}
         </LegacyStack>
       ))}

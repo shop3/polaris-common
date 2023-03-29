@@ -42,7 +42,9 @@ const LoginNoOptions: React.FC<Props> = ({ onLogin }) => {
     <Form onSubmit={handleSubmit}>
       <FormLayout>
         <LegacyStack distribution="center">
-          <Text variant="headingMd" as="h2">Enter your shop domain:</Text>
+          <Text variant="headingMd" as="h2">
+            Enter your shop domain:
+          </Text>
         </LegacyStack>
         <TextField
           id="ShopDomainTextField"

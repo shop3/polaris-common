@@ -20,7 +20,11 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({ id, title, chil
       <ActionList
         items={[
           {
-            content: (<Text variant="headingMd" as="h3">{title}</Text>) as any,
+            content: (
+              <Text variant="headingMd" as="h3">
+                {title}
+              </Text>
+            ) as any,
             suffix: <Icon source={open ? ChevronUpMinor : ChevronDownMinor} />,
             onAction: handleToggle,
           },

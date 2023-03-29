@@ -17,8 +17,12 @@ const DisplayStats: React.FC<DisplayStatsProps> = ({ stats }) => {
         <LegacyStack.Item key={i} fill>
           <LegacyStack vertical alignment="center" distribution="center" spacing="extraTight">
             {stat.icon && <Icon source={getIcon(stat.icon) || ''} backdrop />}
-            <Text variant="headingLg" as="h5">{stat.value}</Text>
-            <Text variant="headingXs" as="h6">{stat.label}</Text>
+            <Text variant="heading2xl" as="h5">
+              {stat.value}
+            </Text>
+            <Text variant="headingXs" as="h6">
+              {stat.label}
+            </Text>
           </LegacyStack>
         </LegacyStack.Item>
       ))}
